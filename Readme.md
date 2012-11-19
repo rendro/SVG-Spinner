@@ -3,7 +3,7 @@
 Modern loading spinner without JavaScript or unnecessary DOM Elements. The spinner and animations are implemented as SVG.
 
 ## Why SVG?
-SVG Images are extremely small and fully scalable as they are vector based. A simple SVG spinner with 12 dots weights about 750 bytes (gripped ~350 bytes) and looks nice on any resolution. For comparison, the spin.js script weights more than 4 times as much.
+SVG images are quite small and fully scalable as they are vector based. A simple, animated SVG spinner with 12 dots weights about 750 bytes (gzipped ~350 bytes) and looks nice at any resolution. For comparison, the spin.js script weights more than 4 times as much.
 
 ## To lazy to write SVG files?
 No problem. I added a spin generator script written in CoffeeScript (and a compiled version) executable with Node.js to generate your spinner SVGs.
@@ -17,8 +17,8 @@ or the following, if you don't have CoffeeScript installed:
 
     $ node tools/spingenerator.js > spinner.svg 
     
-### Parameter
-Wouldn't it be sad if you could not change a single parameter? Yep, so you can:
+### Parameters
+Wouldn't it be sad if you could not change a single parameter? Indeed, so you can:
 
     $ coffee tools/spingenerator.coffee <dots> <dotSize> <radius> <duration> <minOpacity> <maxOpacity>
     
@@ -41,7 +41,7 @@ A spinner with 16 Dots at the size of 2, a radius of 20 and a minimum opacity of
 
 If you don't have to support for every crappy web browser like IE6-8 there is no reason not to use SVG spinning animations. For ancient technology you can always include a fallback png/gif or whatever you want.
 
-**SVG is supporter in the following browsers:**
+**SVG is supported by the following browsers:**
 
 * IE 9+
 * Firefox 4+
