@@ -57,3 +57,6 @@ If you don't have to support for every crappy web browser like IE6-8 there is no
 * Firefox for Android 15+
 
 (see: [Can I Use: SVG in CSS backgrounds](http://caniuse.com/#feat=svg-css))
+
+## License
+None, use it for whatever you want!
