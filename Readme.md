@@ -15,13 +15,13 @@ Run in your terminal:
 
 or the following, if you don't have CoffeeScript installed:
 
-    $ node tools/spingenerator.js > spinner.svg 
-    
+    $ node tools/spingenerator.js > spinner.svg
+
 ### Parameters
 Wouldn't it be sad if you could not change a single parameter? Indeed, so you can:
 
     $ coffee tools/spingenerator.coffee <dots> <dotSize> <radius> <duration> <minOpacity> <maxOpacity>
-    
+
 * `dots` (int) Number of dots (Default: 12)
 * `dotSize` (float) Size of one dot (Default: 2)
 * `radius` (float) Radius of the spinner (Default: 10)
@@ -59,4 +59,4 @@ If you don't have to support for every crappy web browser like IE6-8 there is no
 (see: [Can I Use: SVG in CSS backgrounds](http://caniuse.com/#feat=svg-css))
 
 ## License
-None, use it for whatever you want!
+WTFPL (see license.txt)
