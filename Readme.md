@@ -20,14 +20,16 @@ or the following, if you don't have CoffeeScript installed:
 ### Parameters
 Wouldn't it be sad if you could not change a single parameter? Indeed, so you can:
 
-    $ coffee tools/spingenerator.coffee <dots> <dotSize> <radius> <duration> <minOpacity> <maxOpacity>
+    $ coffee tools/spingenerator.coffee <dots> <dotSize> <radius> <duration> <minOpacity> <maxOpacity> <eccentricity> <color>
 
 * `dots` (int) Number of dots (Default: 12)
-* `dotSize` (float) Size of one dot (Default: 2)
+* `dotSize` (float) Size (radius) of one dot (Default: 2)
 * `radius` (float) Radius of the spinner (Default: 10)
 * `duration` (float) Speed of the animation in seconds (e.g. `1.4`) (Default: 1.2)
 * `minOpacity` (float between 0 and 1) Minimum opacity of a dot (Default: 0)
 * `maxOpacity` (float between 0 and 1) Maximum opacity of a dot (Default: 1)
+* `eccentricity` (float between -0.9999 and 0.9999) The eccentricity of the ellipse; semimajor (radius == dotSize) axis is Y if positive, X if negative (Default: 0)
+* `color` (string) A valid CSS color to fill the dots (Default: "black")
 
 If you only want the dots without any animation, set the duration parameter to a negative value.
 
