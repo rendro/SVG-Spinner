@@ -9,7 +9,7 @@ by Robert Fleischmann
 (function() {
   var addDot, i, options, out, params, _i, _ref;
 
-  params = process.argv.splice(2).map(function(arg) {
+  params = process.argv.slice(2).map(function(arg) {
     return parseFloat(arg);
   });
 
@@ -19,19 +19,31 @@ by Robert Fleischmann
     radius: params[2] || 10,
     duration: params[3] || 1.2,
     minOpacity: params[4] || 0,
-    maxOpacity: params[5] || 1
+    maxOpacity: params[5] || 1,
+    eccentricity: Math.max(Math.min(params[6] || 0, 0.9999), -0.9999),
+    color: process.argv[9] || 'black'
   };
 
   addDot = function(i) {
-    var xPos, yPos;
+    var angle, e, rx, ry, s, xPos, yPos;
     xPos = options.radius * (1 + Math.cos(2 * Math.PI * i / options.dots - Math.PI / 2)) + options.dotSize;
     xPos = Math.round(xPos * 10000) / 10000;
     yPos = options.radius * (1 + Math.sin(2 * Math.PI * i / options.dots - Math.PI / 2)) + options.dotSize;
     yPos = Math.round(yPos * 10000) / 10000;
-    if (options.duration > 0) {
-      return "<circle cx='" + xPos + "' cy='" + yPos + "' r='" + options.dotSize + "' style='opacity:" + options.minOpacity + ";'>\n  <animate attributeType='CSS' attributeName='opacity' from='" + options.maxOpacity + "' to='" + options.minOpacity + "' dur='" + options.duration + "s' repeatCount='indefinite' begin='" + (Math.round(options.duration * i * 10000 / options.dots) / 10000) + "s' \/>\n</circle>\n";
+    s = options.dotSize;
+    e = options.eccentricity;
+    if (e > 0) {
+      rx = Math.sqrt((1 - e * e) * s * s);
+      ry = s;
     } else {
-      return "<circle cx='" + xPos + "' cy='" + yPos + "' r='" + options.dotSize + "'/>\n";
+      rx = s;
+      ry = Math.sqrt((1 - e * e) * s * s);
+    }
+    angle = 360 * i / options.dots;
+    if (options.duration > 0) {
+      return "<ellipse fill=\"" + options.color + "\" transform='rotate(" + angle + ", " + xPos + ", " + yPos + ")' cx='" + xPos + "' cy='" + yPos + "' rx='" + rx + "' ry='" + ry + "' style='opacity:" + options.minOpacity + ";'>\n  <animate attributeType='CSS' attributeName='opacity' from='" + options.maxOpacity + "' to='" + options.minOpacity + "' dur='" + options.duration + "s' repeatCount='indefinite' begin='" + (Math.round(options.duration * i * 10000 / options.dots) / 10000) + "s' \/>\n</ellipse>\n";
+    } else {
+      return "<ellipse fill=\"" + options.color + "\" transform='rotate(" + angle + ", " + xPos + ", " + yPos + ")' cx='" + xPos + "' cy='" + yPos + "' rx='" + rx + "' ry='" + ry + "' />\n";
     }
   };
 
