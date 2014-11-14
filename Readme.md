@@ -5,7 +5,7 @@ Modern loading spinner without JavaScript or unnecessary DOM Elements. The spinn
 ## Why SVG?
 SVG images are quite small and fully scalable as they are vector based. A simple, animated SVG spinner with 12 dots weights about 750 bytes (gzipped ~350 bytes) and looks nice at any resolution. For comparison, the spin.js script weights more than 4 times as much.
 
-## To lazy to write SVG files?
+## Too lazy to write SVG files?
 No problem. I added a spin generator script written in CoffeeScript (and a compiled version) executable with Node.js to generate your spinner SVGs.
 
 ### Usage
